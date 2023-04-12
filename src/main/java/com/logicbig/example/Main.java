@@ -9,22 +9,22 @@ import javax.servlet.ServletContext;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class Main{
+public class Main {
 
-  public static void main (String[] args) {
-      SpringApplication.run(Main.class, args);
+  public static void main(String[] args) {
+    SpringApplication.run(Main.class, args);
   }
 
   @Bean
-  ServletRegistrationBean jsfServletRegistration (ServletContext servletContext) {
-      //spring boot only works if this is set
-      servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
+  ServletRegistrationBean jsfServletRegistration(ServletContext servletContext) {
+    // spring boot only works if this is set
+    servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
 
-      //registration
-      ServletRegistrationBean srb = new ServletRegistrationBean();
-      srb.setServlet(new FacesServlet());
-      srb.setUrlMappings(Arrays.asList("*.xhtml"));
-      srb.setLoadOnStartup(1);
-      return srb;
+    // registration
+    ServletRegistrationBean srb = new ServletRegistrationBean();
+    srb.setServlet(new FacesServlet());
+    srb.setUrlMappings(Arrays.asList("*.xhtml"));
+    srb.setLoadOnStartup(1);
+    return srb;
   }
 }

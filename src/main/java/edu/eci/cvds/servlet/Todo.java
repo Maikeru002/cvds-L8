@@ -1,4 +1,4 @@
-package edu.eci.cvds.servlet.model;
+package edu.eci.cvds.servlet;
 
 public class Todo {
     private int userId;

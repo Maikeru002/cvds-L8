@@ -1,4 +1,4 @@
-package com.game.backingBean;
+package com.logicbig.example;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;

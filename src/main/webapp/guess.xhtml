@@ -5,7 +5,9 @@
     <h:head>
     </h:head>
     <h:body>
-        <center><h1>GuessBean</h1></center>
+        <center><h1>GuessBean</h1>
+        <p:outputLabel  style="font-size: 30px; font-family: 'Courier New', Courier, monospace;" value = " Bienvenido #{userBean.name}"/>
+        </center>
         <center>
         <h:form id="guess_form">
             <p:outputLabel style="display:none" value = "#{guessBean.guessNumber}"/>
@@ -27,7 +29,7 @@
             </p:panelGrid>
         </p:panelGrid>
         </h:form>
-        
+    
         </center>   
     </h:body>
 </html>

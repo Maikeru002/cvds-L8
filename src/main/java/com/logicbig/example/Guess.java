@@ -1,70 +1,58 @@
 package com.logicbig.example;
 
-import java.util.Objects;
-
 import javax.persistence.*;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.Objects;
-
+import java.util.*;
 @Entity
-@Table(name = "DATOS")
+@Table(name = "CONFIGURATION")
 public class Guess {
     @Id
     @Column(name = "PROPIEDAD")
-    private String Property;
+    private String id;
     @Column(name = "VALOR")
-    private String Value;
+    private String valor;
 
-    public Guess(String newProperty, String newValue) {
-        Property = newProperty;
-        Value = newValue;
+    public Guess(String id, String valor) {
+        this.id = id;
+        this.valor = valor;
     }
 
     public Guess() {
+
+    }
+    public void setId(String propiedad) {
+        this.id = propiedad;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Guess guess = (Guess) o;
-        return Objects.equals(Property, guess.Property) && Objects.equals(Value, guess.Value);
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(Property, Value);
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public String getValor() {
+        return valor;
     }
 
     @Override
     public String toString() {
-        return "Guess{" +
-                "Property=" + Property +
-                ", Value='" + Value +
+        return "ConfigutationB{" +
+                "propiedad='" + id + '\'' +
+                ", valor='" + valor + '\'' +
                 '}';
     }
 
-    // getters
-    public String getProperty() {
-        return Property;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Guess that = (Guess) o;
+        return Objects.equals(id, that.id) && Objects.equals(valor, that.valor);
     }
 
-    public String getValue() {
-        return Value;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, valor);
     }
-
-    // setters
-    public void setProperty(String newProperty) {
-        Property = newProperty;
-    }
-
-    public void setValue(String newValue) {
-        Value = newValue;
-    }
-
 }

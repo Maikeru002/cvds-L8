@@ -1,40 +1,35 @@
 package com.logicbig.example;
 
-import java.util.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class GuessService {
     private final GuessRepository guessRepository;
-
     @Autowired
-    public GuessService(GuessRepository guessRepository) {
-        this.guessRepository = guessRepository;
+    public GuessService(GuessRepository guessService){
+        this.guessRepository = guessService;
     }
-
-    public Guess addGuess(Guess guess) {
+    public Guess addGuess(Guess guess){
         return guessRepository.save(guess);
     }
-
-    public Guess getGuess(String stringProperty) {
-        return guessRepository.findById(stringProperty);
+    public Guess getGuess (String Property){
+        return guessRepository.findById(Property);
     }
-
-    public List<Guess> getAllGuess() {
+    public List<Guess> getAllGuess(){
         return guessRepository.findAll();
     }
-
-    public Guess updatGuess(Guess guess) {
-        if (guessRepository.existsById(guess.getProperty())) {
+    public Guess updateGuess(Guess guess){
+        if(guessRepository.existsById(guess.getId())){
             return guessRepository.save(guess);
         }
         return null;
     }
 
-    public void deleteGuess(String guess) {
-        guessRepository.deleteById(guess);
+    public void deleteConfiguration(Long Property){
+        guessRepository.deleteById(Property);
     }
 
 }
